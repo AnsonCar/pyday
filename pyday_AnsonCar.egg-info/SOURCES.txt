@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pyday_AnsonCar.egg-info/PKG-INFO
+pyday_AnsonCar.egg-info/SOURCES.txt
+pyday_AnsonCar.egg-info/dependency_links.txt
+pyday_AnsonCar.egg-info/top_level.txt
