@@ -19,5 +19,10 @@ pip freeze > requirements.txt
 # python3 -m pip install --upgrade build
 # python3 -m pip install --upgrade twine
 # python3 -m build
-# python3 -m twine upload --repository pyday dist/*
+# python3 -m twine upload --repository https://pypi.org/pyday/ dist/*
+# python3 -m twine upload dist/*--repository
+
+
 # open ~/.pypirc
+
+# python3 -m pip install --index-url https://pypi.org/pyday/ --no-deps pyday_AnsonCar
