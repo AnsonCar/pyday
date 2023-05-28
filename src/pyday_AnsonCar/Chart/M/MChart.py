@@ -2,6 +2,7 @@ import matplotlib
 from matplotlib.font_manager import FontManager
 # matplotlib.rc("font",family='Heiti TC')
 
+
 class MChart:
     def __int__(self):
         self.setfont("Heiti TC")
@@ -13,7 +14,7 @@ class MChart:
             print('\t' + f)
 
     def setfont(self, font):
-        matplotlib.rc("font",family=font)
+        matplotlib.rc("font", family=font)
 
-    def outputPhoto(self,name):
+    def outputPhoto(self, name):
         self.savefig(name)

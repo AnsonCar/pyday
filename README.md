@@ -43,6 +43,6 @@ pip install -r requirements.txt
 查看 [pyday 詳情]()
 
 ## 查閱更多
-查看 [Change Log(更新日志)](docs/changelog.md) 
+查看 [Change Log(更新日志)](doc/changelog.md) 
 
 如果覺得本項目有潛力 或 對你有幫助，可以點Star鼓勵一下~
