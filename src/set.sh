@@ -18,6 +18,8 @@ pip freeze > requirements.txt
 # python3 -m pip install --upgrade twine
 
 # pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple pyday-AnsonCar==0.0.17
-
+# jupyter kernelspec remove kernelname
 # touch pyproject.toml
 # git clone https://github.com/pyecharts/pyecharts-gallery.git
+
+# python -m ipykernel install --user --name py31010 --display-name "Python (3.10.10)"

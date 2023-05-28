@@ -31,7 +31,7 @@
 ## 使用
 ### 下載
 ```
-git clone 
+git clone https://github.com/AnsonCar/pyday.git
 ```
 
 ### 初始化環境
