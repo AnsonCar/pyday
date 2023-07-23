@@ -16,22 +16,14 @@
 ## 簡介
 #### 框架由以下基本模組構成：
 1. Data Analysis 數據分析
+- Data 
 2. Data Visualization 數據可視化
 3. Machine Learning 機器學習
 
 ## 項目結構
 ```
 *
-│
-├── LICENSE 開源證明
-├── README.md 項目介紹
-├── pyproject.toml 創建發布包
-├── docs 文檔
-│   ├── Logo
-│   └── changelog.md 開發日誌
-├── src 源代碼
-│   └── pyday_AnsonCar
-└── test 測試
+
 ```
 
 ## 使用

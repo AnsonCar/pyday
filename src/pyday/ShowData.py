@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 
 
-class ReadData:
+class ShowData:
     # Data members
     fileName: str
     fileFormat: str
@@ -68,6 +68,11 @@ class ReadData:
         pd.options.display.max_rows = None
         return self.df
 
+    def show_all(self):
+        pd.options.display.max_columns = None
+        pd.options.display.max_rows = None
+        return self.df
+    
     # Basic 一般
     def __str__(self) -> str:
         return self.table().to_string()
