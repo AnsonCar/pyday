@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyday_AnsonCar"
-version = "0.0.16"
+version = "0.0.17"
 authors = [
   { name="AnsonCar", email="asnon1tsang@gmail.com" },
 ]
@@ -18,8 +18,8 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy>=1.24.3"
-    "pandas>=1.2.0"
+    "numpy>=1.24.3",
+    "pandas>=1.2.0",
     "pyecharts>=2.0.3"
 ]
 
