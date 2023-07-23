@@ -1,5 +1,6 @@
 # Change Log(更新日志)
 ## pyday 2023-07-23(v0.0.17)
+- [感謝] awesometoolbox/otf2ttf，將otf格式轉為ttf
 - [新增] 䌓簡英轉換功能模組 ChangLang
 
 ## pyday 2023-06-30(v0.0.16)
