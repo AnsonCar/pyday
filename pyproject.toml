@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pyday_AnsonCar"
+name = "pyday"
 version = "0.0.17"
 authors = [
   { name="AnsonCar", email="asnon1tsang@gmail.com" },
@@ -20,7 +20,9 @@ classifiers = [
 dependencies = [
     "numpy>=1.24.3",
     "pandas>=1.2.0",
-    "pyecharts>=2.0.3"
+    "googletrans==3.1.0a0",
+    "opencc-python-reimplemented==0.1.7",
+    "reportlab==4.0.4"
 ]
 
 [project.urls]

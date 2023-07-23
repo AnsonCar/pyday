@@ -7,13 +7,12 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-
-
 from reportlab.lib.pagesizes import letter
 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 
+# 寫入字體
 for name, path in config.font_ttf.items():
     pdfmetrics.registerFont(TTFont(name, path))
     
