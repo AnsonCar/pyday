@@ -1,4 +1,6 @@
-import json
+from .basic import config
+from .basic import BaseClass
+
 from opencc import OpenCC
 from googletrans import Translator
 

@@ -1,7 +1,7 @@
-import os 
-
-# __file__ = "."
-basedir = os.path.abspath(os.path.dirname(__file__))
+import os
+# 獲取 目前腳本所在目錄的父目錄的絕對路徑
+basedir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+print(basedir)
 
 font_path = os.path.join(basedir,"font")
 Noto_Sans_TC = os.path.join(font_path, "Noto_Sans_TC")
