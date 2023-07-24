@@ -1,5 +1,6 @@
 # Change Log(更新日志)
 ## pyday 2023-07-23(v0.0.18)
+- [新增] json2PDF
 - [新增] Data2PDF功能
 
 ## pyday 2023-07-23(v0.0.17)

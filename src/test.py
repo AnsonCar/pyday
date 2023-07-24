@@ -1,3 +1,3 @@
 from pyday import *
 
-pdf = Data2PDF("/Users/ansoncar/Desktop/MyProject/pyday/src/train.csv","test")
+Data2PDF("/Users/ansoncar/Desktop/MyProject/pyday/test.json","test")
