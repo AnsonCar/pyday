@@ -2,6 +2,7 @@
 ## pyday 2023-07-23(v0.0.18)
 - [新增] json2PDF
 - [新增] Data2PDF功能
+- [參考] https://ithelp.ithome.com.tw/articles/10236883
 
 ## pyday 2023-07-23(v0.0.17)
 - [感謝] awesometoolbox/otf2ttf，將otf格式轉為ttf

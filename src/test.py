@@ -1,3 +1,4 @@
 from pyday import *
-
-Data2PDF("/Users/ansoncar/Desktop/MyProject/pyday/test.json","test")
+imgPath = "/Users/ansoncar/Desktop/MyProject/pyday/test/"
+infile = "/Users/ansoncar/Desktop/MyProject/pyday/test/test.json"
+Data2PDF(infile, "test", imgPath)
