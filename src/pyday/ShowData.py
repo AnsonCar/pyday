@@ -7,16 +7,10 @@ import pandas as pd
 
 
 class ShowData:
-    # Data members
-    fileName: str
-    fileFormat: str
-    df: pd.core.frame.DataFrame
-
-    # Method
-    # constructor 構造器 初始化
-    def __init__(self, fileName: str, *filetable: str):
-        self.fileName = fileName
-        self.fileFormat = fileName.split(".")[-1]
+    # constructor
+    def __init__(self, inFile: str, *filetable: str):
+        self.inFile = inFile
+        self.fileFormat = inFile.split(".")[-1]
         self.filetable = filetable[0] if filetable else ""
         self.df = pd.DataFrame(self.inFile())
 
@@ -24,16 +18,16 @@ class ShowData:
     # 輸入 數據文件
     def inFile(self):
         if self.fileFormat == "db":
-            self.conn = sqlite3.connect(f"{self.fileName}")
+            self.conn = sqlite3.connect(f"{self.inFile}")
             return pd.read_sql_query(
-                f"SELECT * FROM {self.filetable}", sqlite3.connect(self.fileName)
+                f"SELECT * FROM {self.filetable}", sqlite3.connect(self.inFile)
             )
         elif self.fileFormat == "csv":
-            return pd.read_csv(self.fileName)
+            return pd.read_csv(self.inFile)
         elif self.fileFormat == "json":
-            return pd.read_json(self.fileName)
-        elif self.fileName == "xlsx":
-            return pd.read_excel(self.fileName)
+            return pd.read_json(self.inFile)
+        elif self.inFile == "xlsx":
+            return pd.read_excel(self.inFile)
         else:
             return print("input: Does not support ")
 
@@ -85,7 +79,7 @@ class ShowData:
         return self.table().to_string()
 
     def name(self) -> str:
-        return self.fileName
+        return self.inFile
 
     def format(self) -> str:
         return self.fileFormat

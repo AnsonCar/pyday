@@ -1,3 +1,5 @@
 .venv/
 dist/
+data
+.vscode
 .ipynb_checkpoints/

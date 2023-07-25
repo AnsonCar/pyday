@@ -2,8 +2,7 @@ import os
 import json
 from .basic import config
 from .basic import BaseClass
-
-# 樣式
+from .ChangLanguage import *
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -25,7 +24,6 @@ from reportlab.pdfbase.ttfonts import TTFont
 # 寫入字體
 for name, path in config.font_ttf.items():
     pdfmetrics.registerFont(TTFont(name, path))
-# 設定字體
 styles = getSampleStyleSheet()
 # 標題
 Tile_TC = ParagraphStyle(
@@ -76,69 +74,98 @@ Basis2_TC = ParagraphStyle(
     leftIndent=16 * 2,
 )
 
+Tile_SC = ParagraphStyle(
+    "styleNormalCustom",
+    fontName="Noto_Sans_SC_Bold",
+    parent=styles["Normal"],
+    alignment=TA_CENTER,
+    fontSize=18,
+    leading=24,
+    # textColor=HexColor("#4f71bd")
+)
+# 副標題
+SubTile_SC = ParagraphStyle(
+    "styleNormalCustom",
+    fontName="Noto_Sans_SC_Bold",
+    parent=styles["Normal"],
+    alignment=TA_LEFT,
+    fontSize=16,
+    leading=22,
+)
+# 副標題2
+SubTile2_SC = ParagraphStyle(
+    "styleNormalCustom",
+    fontName="Noto_Sans_SC_Bold",
+    parent=styles["Normal"],
+    alignment=TA_LEFT,
+    fontSize=16,
+    leading=22,
+    leftIndent=16 * 2,
+)
+# 內文（一般/基礎)
+Basis_SC = ParagraphStyle(
+    "styleNormalCustom",
+    fontName="Noto_Sans_SC_Regular",
+    parent=styles["Normal"],
+    alignment=TA_LEFT,
+    fontSize=12,
+    leading=20,
+)
+
+# 內文2（一般/基礎)
+Basis2_SC = ParagraphStyle(
+    "styleNormalCustom",
+    fontName="Noto_Sans_SC_Regular",
+    parent=styles["Normal"],
+    alignment=TA_LEFT,
+    fontSize=12,
+    leading=20,
+    leftIndent=16 * 2,
+)
+
 
 class Data2PDF:
-    def __init__(self, fileName, outfile, img_path=None, footer=True):
-        self.img_path = img_path if img_path else ""
-        self.fileName = fileName
-        self.fileFormat = fileName.split(".")[-1]
-        self.pdf = SimpleDocTemplate(
-            f"{outfile}.pdf",
-            pagesize=letter,
-            rightMargin=72,
-            leftMargin=72,
-            topMargin=72,
-            bottomMargin=72,
-        )
-        self.data = self.inFile(fileName)
-        self.footer = footer
-        # 轉換數據，生成 PDF 文檔
-        self.toFile()
+    # constructor
+    def __init__(self, inFile=""):
+        # about inptut file name, check the name and extension (文件後綴)
+        self.fileName = inFile
+        self.fileFormat = inFile.split(".")[-1]
+        # set the read data path
+        self.setPath(config.worKdir + "/data")
+        self.setImgPath(config.worKdir + "/data/img/")
+        self.data = self.inFile(inFile) if inFile != "" else []
 
-    # setter
-    def inFile(self, file):
-        data = []
-        if self.fileFormat == "json":
-            # 如果數據文件格式為 JSON，則讀取 JSON 文件。
-            with open(self.fileName, "r") as fileJson:
-                json_str = json.loads(fileJson.read())
-            # 將 JSON 中的數據轉換為 PDF 中可用的格式，並添加到數據列表中。
-            for line in json_str["data"]:
-                if line[0] == "img":
-                    set = self.inImg(line[1])
-                elif line[0].lower() == "table":
-                    set = self.inTable(line)
-                else:
-                    set = self.inText(line)
-                data.append(set)
+    # Setter
+    def inFile(self, inFile):
+        self.fileName = inFile
+        self.fileFormat = inFile.split(".")[-1]
+        file = os.path.join(self.path, inFile)
+        with open(file, "r") as fileJson:
+            self.data = json.loads(fileJson.read())["data"]
+        return self.data
 
-        else:
-            # 如果數據文件格式不是 JSON，則直接讀取文本文件。
-            with open(file, "r") as file:
-                for line in file.read().split():
-                    data.append(Paragraph(line, Basis_TC))
-        return data
-
-    def inText(self, data):
+    def inText(self, data, cl="tc"):
+        Text = {
+            "Title": Tile_TC if cl=="tc" else Tile_SC,
+            "SubTitle": SubTile_TC if cl=="tc" else SubTile_SC,
+            "SubTitle2": SubTile_TC if cl=="tc" else SubTile2_SC,
+            "SubTitle2": SubTile_TC if cl=="tc" else SubTile2_SC,
+            "Basis": Basis_TC if cl=="tc" else Basis_SC,
+            "Basis2": Basis2_TC if cl=="tc" else Basis2_SC,
+        }
         if data[0].lower() == "title":
-            # 如果是標題，則使用 Tile_TC 樣式創建段落對象。
-            return Paragraph(data[1], Tile_TC)
-
+            return Paragraph(data[1], Text["Title"])
         elif data[0].lower() == "subtitle":
-            # 如果是副標題，則使用 SubTile_TC 樣式創建段落對象。
-            return Paragraph(data[1], SubTile_TC)
+            return Paragraph(data[1], Text["SubTitle"])
         elif data[0].lower() == "subtitle2":
-            # 如果是副標題2，則使用 SubTile2_TC 樣式創建段落對象。
-            return Paragraph(data[1], SubTile2_TC)
+            return Paragraph(data[1], Text["SubTitle2"])
         elif data[0].lower() == "text":
-            # 如果是副標題2，則使用 SubTile2_TC 樣式創建段落對象。
-            return Paragraph(data[1], Basis_TC)
+            return Paragraph(data[1], Text["Basis"])
         elif data[0].lower() == "text2":
-            # 如果是內文，則使用 Basis_TC 樣式創建段落對象。
-            return Paragraph(data[1], Basis2_TC)
+            return Paragraph(data[1], Text["Basis2"])
 
     def inImg(self, img):
-        img = os.path.join(self.img_path, img)
+        img = os.path.join(self.ImgPath, img)
         img_reader = ImageReader(img)
         img_width, img_height = img_reader.getSize()
         max_width, max_height = self.pdf.width, self.pdf.height
@@ -169,6 +196,12 @@ class Data2PDF:
             spaceAfter=12,
         )
 
+    def setPath(self, path):
+        self.path = path
+
+    def setImgPath(self, path):
+        self.ImgPath = path
+
     # 寫入頁碼
     def infooter(self, canvas, doc):
         # 在 PDF 頁面底部寫入頁碼
@@ -176,14 +209,47 @@ class Data2PDF:
         canvas.drawString(doc.width + doc.rightMargin, 20, f"{doc.page}")
         canvas.restoreState()
 
+    def getPath(self):
+        path = f"Data Path: {self.path}\n Img Path: {self.ImgPath}"
+        return path
+
     # getter
-    def toFile(self):
+    def toFile(self, toFile,footer=True,cl="tt"):
+        self.pdf = SimpleDocTemplate(
+            f"{toFile}",
+            pagesize=letter,
+            rightMargin=72,
+            leftMargin=72,
+            topMargin=72,
+            bottomMargin=72,
+        )
+        # get the file data
+        data = []
+        for line in self.data:
+            if line[0] == "img":
+                set = self.inImg(line[1])
+            elif line[0].lower() == "table":
+                set = self.inTable(line)
+            else:
+                
+                if cl == "tc":
+                    cc = ChangLang()
+                    cc.setData(line[1])
+                    line[1] = cc.tc
+                elif cl == "sc":
+                    cc = ChangLang()
+                    cc.setData(line[1])
+                    line[1] = cc.sc
+                elif cl == "en":
+                    cc = ChangLang()
+                    cc.setData(line[1])
+                    line[1] = cc.en
+                set = self.inText(line,cl)
+            data.append(set)
         # 將數據轉換為 PDF 文件。
-        if self.footer:
+        if footer:
             # 如果需要在 PDF 頁面底部添加頁碼，則設置 onFirstPage 和 onLaterPages 參數，並生成 PDF 文件。
-            self.pdf.build(
-                self.data, onFirstPage=self.infooter, onLaterPages=self.infooter
-            )
+            self.pdf.build(data, onFirstPage=self.infooter, onLaterPages=self.infooter)
         else:
             # 如果不需要在 PDF 頁面底部添加頁碼，則直接生成 PDF 文件。
             self.pdf.build(self.data)
