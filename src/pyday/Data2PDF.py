@@ -146,12 +146,12 @@ class Data2PDF:
 
     def inText(self, data, cl="tc"):
         Text = {
-            "Title": Tile_TC if cl=="tc" else Tile_SC,
-            "SubTitle": SubTile_TC if cl=="tc" else SubTile_SC,
-            "SubTitle2": SubTile_TC if cl=="tc" else SubTile2_SC,
-            "SubTitle2": SubTile_TC if cl=="tc" else SubTile2_SC,
-            "Basis": Basis_TC if cl=="tc" else Basis_SC,
-            "Basis2": Basis2_TC if cl=="tc" else Basis2_SC,
+            "Title": Tile_TC if cl == "tc" or "tt" else Tile_SC,
+            "SubTitle": SubTile_TC if cl == "tc" or "tt" else SubTile_SC,
+            "SubTitle2": SubTile_TC if cl == "tc" or "tt" else SubTile2_SC,
+            "SubTitle2": SubTile_TC if cl == "tc" or "tt" else SubTile2_SC,
+            "Basis": Basis_TC if cl == "tc" or "tt" else Basis_SC,
+            "Basis2": Basis2_TC if cl == "tc" or "tt" else Basis2_SC,
         }
         if data[0].lower() == "title":
             return Paragraph(data[1], Text["Title"])
@@ -214,7 +214,7 @@ class Data2PDF:
         return path
 
     # getter
-    def toFile(self, toFile,footer=True,cl="tt"):
+    def toFile(self, toFile, footer=True, cl="tt"):
         self.pdf = SimpleDocTemplate(
             f"{toFile}",
             pagesize=letter,
@@ -231,7 +231,6 @@ class Data2PDF:
             elif line[0].lower() == "table":
                 set = self.inTable(line)
             else:
-                
                 if cl == "tc":
                     cc = ChangLang()
                     cc.setData(line[1])
@@ -244,7 +243,7 @@ class Data2PDF:
                     cc = ChangLang()
                     cc.setData(line[1])
                     line[1] = cc.en
-                set = self.inText(line,cl)
+                set = self.inText(line, cl)
             data.append(set)
         # 將數據轉換為 PDF 文件。
         if footer:
