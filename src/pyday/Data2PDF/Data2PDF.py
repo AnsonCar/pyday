@@ -211,8 +211,11 @@ class Data2PDF:
         canvas.restoreState()
 
     def getPath(self):
-        path = f"Data Path: {self.path}\n Img Path: {self.ImgPath}"
+        path = f"Data Path: {self.path}"
         return path
+    def getImgPAth(self):
+        ImgPath = f"Img Path: {self.ImgPath}"
+        return ImgPath
 
     # getter
     def toFile(self, toFile, footer=True, cl="tt"):

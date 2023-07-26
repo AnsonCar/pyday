@@ -33,3 +33,7 @@ import pyday
 d2pdf = Data2PDF("test.json")
 d2pdf.toFile("mypdf.pdf")
 ```
+
+## 詳細文檔
+### [Data2PDF](./d2pdf.md)
+### [DataReader](./dr.md)
