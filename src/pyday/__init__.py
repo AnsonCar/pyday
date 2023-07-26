@@ -1,3 +1,4 @@
-from .ChangLanguage import ChangLang
-from .ShowData import ShowData
-from .Data2PDF import Data2PDF
+from .ChangLanguage import *
+from .DataReader.DataReader import *
+from .Data2PDF.Data2PDF import *
+from .DataVis.DataVis import *

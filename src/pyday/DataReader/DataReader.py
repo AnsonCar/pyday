@@ -1,12 +1,10 @@
-from .basic import config
-from .basic import BaseClass
-
+import sys
+sys.path.append('..')
+from ..basic import config
 import sqlite3
 import pandas as pd
 
-
-
-class ShowData:
+class DataReader:
     # constructor
     def __init__(self, inFile: str, *filetable: str):
         self.inFile = inFile

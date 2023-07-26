@@ -4,7 +4,7 @@ import os
 basedir = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
 worKdir = os.getcwd()
 # 字體的絕對路徑
-font_path = os.path.join(basedir, "font")
+font_path = os.path.join(basedir, "basic/font")
 Noto_Sans_TC = os.path.join(font_path, "Noto_Sans_TC")
 Noto_Sans_SC = os.path.join(font_path, "Noto_Sans_SC")
 

@@ -1,32 +1,34 @@
 <p align="center">
     <img width="192px" src="./doc/Logo/AnsonLogo01.png" >
 </p>
-<h1 align="center"><b>pyDay</b></h1>
+<h1 align="center"><b>PyDay</b></h1>
 
 <p align="center">數據分析一條龍</p>
 <p align="center"></p>
 
-## 理念
-因為 數據分析的常用包 太多指令需要記同太長，所以我自己寫幾個class簡化指令。
-> 左手jupyter，右手python。
-
-旨在提供快速且方便的方法來處理、分析和視覺化數據。它將提供一系列的功能和工具，可以幫助用戶進行數據預處理、統計分析和可視化，從而更好地理解和準確地呈現數據。
-<!-- This Python package aims to provide fast and convenient methods for processing, analyzing, and visualizing data. It will offer a range of features and tools to assist users in data preprocessing, statistical analysis, and visualization, enabling them to better understand and accurately present their data. -->
+## 宗旨
+PyDay 的宗旨，是提供統一接口和功能集，使代碼更簡潔和易於維護。
+PyDay 是一個綜合工具包，主要用於數據分析和數據可視化，封裝了pandas, numpy, matplotlib等常用包。
+除了數據分析和數據可視化之外，Pyday 還提供了一些有用的功能，例如䌓簡英轉換、生成PDF等。 
 
 ## 簡介
 #### 框架由以下基本模組構成：
-1. Data Analysis 數據分析
-- Data 
-2. Data Visualization 數據可視化
-3. Machine Learning 機器學習
+1. DataReader 數據分析
+2. DataVis 用於數據可視化
+3. Data2PDF 用於生成PDF
+4. ChangLang 用於翻譯
+<!-- Machine Learning 機器學習 -->
 
-## 項目結構
+#### 優勢
+平時使用matplotlib等庫時，自帶的字體可能會不支持顯示中文字體，需要自已再設定字體。
+而本項目使用了google開源字體 Noto Sans，全面支持中文字體。
+
+<!-- ## 項目結構
 ```
 *
 
-```
+``` -->
 
-## 使用
 ### 下載
 ```
 git clone https://github.com/AnsonCar/pyday.git
@@ -37,8 +39,11 @@ git clone https://github.com/AnsonCar/pyday.git
 pip install -r requirements.txt
 ```
 
-### 使用文檔
-查看 [pyday 詳情](https://ansoncar.github.io/ReferenceData/Document/pyday.html)
+### 使用方法
+查看 [pyday 快速開始](doc/documentation/guide_tc.md)
+
+<!-- ### 使用文檔 -->
+<!-- 查看 [pyday 詳情](https://ansoncar.github.io/ReferenceData/Document/pyday.html) -->
 
 ## 查閱更多
 查看 [Change Log(更新日志)](doc/changelog.md) 

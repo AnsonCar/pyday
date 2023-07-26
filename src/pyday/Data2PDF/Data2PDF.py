@@ -1,8 +1,9 @@
+import sys
+sys.path.append('..')
 import os
 import json
-from .basic import config
-from .basic import BaseClass
-from .ChangLanguage import *
+from ..basic import config
+from ..ChangLanguage import *
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -216,7 +217,7 @@ class Data2PDF:
     # getter
     def toFile(self, toFile, footer=True, cl="tt"):
         self.pdf = SimpleDocTemplate(
-            f"{toFile}",
+            f"{config.worKdir}/dist/{toFile}",
             pagesize=letter,
             rightMargin=72,
             leftMargin=72,
