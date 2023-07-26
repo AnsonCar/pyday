@@ -23,13 +23,17 @@ PyDay 是一個綜合工具包，主要用於數據分析和數據可視化，�
 平時使用matplotlib等庫時，自帶的字體可能會不支持顯示中文字體，需要自已再設定字體。  
 而本項目使用了google開源字體 Noto Sans，全面支持中文字體。
 
+## 使用方法
+**查看 [pyday 快速開始](doc/documentation/guide_tc.md)**  
+**查看 [Data2PDF 詳細文檔](doc/documentation/Data2PDF.md)**
+
 <!-- ## 項目結構
 ```
 *
 
 ``` -->
 
-### 下載
+<!-- ## 下載
 ```
 git clone https://github.com/AnsonCar/pyday.git
 ```
@@ -37,11 +41,9 @@ git clone https://github.com/AnsonCar/pyday.git
 ### 初始化環境
 ```
 pip install -r requirements.txt
-```
+``` -->
 
-### 使用方法
-**查看 [pyday 快速開始](doc/documentation/guide_tc.md)**  
-**查看 [Data2PDF 詳細文檔](doc/documentation/Data2PDF.md)**
+
 
 <!-- ### 使用文檔 -->
 <!-- 查看 [pyday 詳情](https://ansoncar.github.io/ReferenceData/Document/pyday.html) -->
