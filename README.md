@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ```
 
 ### 使用方法
-**查看 [pyday 快速開始](doc/documentation/guide_tc.md)** 
+**查看 [pyday 快速開始](doc/documentation/guide_tc.md)**  
 **查看 [Data2PDF 詳細文檔](doc/documentation/Data2PDF.md)**
 
 <!-- ### 使用文檔 -->
