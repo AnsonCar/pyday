@@ -35,5 +35,5 @@ d2pdf.toFile("mypdf.pdf")
 ```
 
 ## 詳細文檔
-### [Data2PDF](./d2pdf.md)
+### [Data2PDF](./Data2PDF.md)
 ### [DataReader](./dr.md)
