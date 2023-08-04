@@ -25,6 +25,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 # 寫入字體
 for name, path in config.font_ttf.items():
     pdfmetrics.registerFont(TTFont(name, path))
+
 styles = getSampleStyleSheet()
 # 標題
 Tile_TC = ParagraphStyle(
@@ -177,7 +178,7 @@ class Data2PDF:
         return Image(
             img,
             width=img_width,
-            height=img_height,
+            height=img_height
         )
 
     def inTable(self, data):

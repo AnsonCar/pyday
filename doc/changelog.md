@@ -1,6 +1,11 @@
 # Change Log(更新日志)
+## pyday 2023-08-04(v0.0.21)
+- [加入] [AnsonCar] Data2PDF 詳細文檔 更多內容
+- [新增] [AnsonCar] Data2PDF 指令大全
+- [新增] [AnsonCar] DatPDF TextStyle 相關指令
+
 ## pyday 2023-07-27(v0.0.20)
-- [新增] Data2PDF 詳細文檔
+- [新增] [AnsonCar] Data2PDF 詳細文檔
 
 ## pyday 2023-07-26(v0.0.20)
 - [新增] document文件夾 和 基本說明
