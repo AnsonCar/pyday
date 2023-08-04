@@ -26,7 +26,7 @@ PyDay 是一個綜合工具包，主要用於數據分析和數據可視化，�
 ## 使用方法
 **查看 [pyday 快速開始](doc/documentation/guide_tc.md)**  
 ### Data2PDF
-**查看 [Data2PDF 詳細文檔](doc/documentation/Data2PDF.md)**
+**查看 [Data2PDF 詳細文檔](doc/documentation/Data2PDF.md)**  
 **查看 [Data2PDf 指令大全](doc/documentation/Data2PDF_ALL.md)**
 <!-- ## 項目結構
 ```
