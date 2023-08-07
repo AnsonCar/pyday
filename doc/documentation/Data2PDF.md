@@ -88,7 +88,7 @@ d2pdf.toFile("myPDF_en.pdf", cl="en") # 英文
 <!-- > 未來會新增 英文 翻譯 中文 -->
 
 ### 默認 toFile 路徑
-默認inFile路徑為```/dist```，Data2PDF生成的PDF會存放在這𥚃，如果找不到此文件夾則會自動生成。
+默認inFile路徑為```/pydayDist```，Data2PDF生成的PDF會存放在這𥚃，如果找不到此文件夾則會自動生成。
 #### 查看路徑：
 ```python
 print( d2pdf.getToPath() )

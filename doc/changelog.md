@@ -1,8 +1,14 @@
 # Change Log(更新日志)
+## pyday 2023-08-07(v0.0.22)
+- [修改] Data2PDF 指令大全
+- [新增] Image 及 Table 樣式
+
 ## pyday 2023-08-04(v0.0.21)
 - [加入] [AnsonCar] Data2PDF 詳細文檔 更多內容
 - [新增] [AnsonCar] Data2PDF 指令大全
 - [新增] [AnsonCar] DatPDF TextStyle 相關指令
+- [修改] [AnsonCar] Data2PDf 輸入文件夾為 ```/pydayData``` ( 原本為```/data`` )
+- [修改] [AnsonCar] Data2PDf 輸出文件夾為 ```/pydayDist``` ( 原本為```/dist``` )
 
 ## pyday 2023-07-27(v0.0.20)
 - [新增] [AnsonCar] Data2PDF 詳細文檔

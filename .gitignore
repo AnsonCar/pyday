@@ -1,6 +1,8 @@
 .venv/
 dist/
+pydayDist/
 data
+pydayData/
 .vscode
 .ipynb_checkpoints/
 use.md
