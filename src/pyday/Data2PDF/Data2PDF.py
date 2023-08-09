@@ -1,10 +1,8 @@
-import sys
-sys.path.append('..')
 import os
 import json
 from . import BasicStyle
 from ..basic import config
-from ..ChangLanguage import *
+from ..Tool.ChangLanguage import *
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -13,6 +11,7 @@ from reportlab.platypus import (
     TableStyle,
     Table,
 )
+
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import HexColor, black
@@ -30,18 +29,17 @@ class Data2PDF:
         # Basic & Path
         self.fileName = inFile
         self.inData = { "data": [ [ "Title_TC", "Did Not Have Data" ] ] }
-        self.inPath = None
-        self.inImgPath = None
-        self.toPath = None
+        self.inPath = os.path.join( config.worKdir, "pydayData/PDF" )
+        self.inImgPath = os.path.join( config.worKdir, "pydayData/PDF/img" )
+        self.toPath = os.path.join( config.worKdir, "pydayDist/PDF" )
         self.pdf = None
+
+        if not "ipykernel" in sys.modules:
+            self.loadDir()
         
-        self.setPath( config.worKdir + "/pydayData" )
-        self.setImgPath( config.worKdir + "/pydayData/img/" )
-        self.setToPath( config.worKdir + "/pydayDist" )
-    
-        if type(inFile) == str:
+        if isinstance(inFile, str):
             self.inFile(inFile)
-        elif type(inFile) == dict:
+        elif isinstance(inFile, dict):
             self.inData = inFile
 
         # Style
@@ -53,12 +51,17 @@ class Data2PDF:
         for style in BasicStyle.Text:
             self.addText(style)
             
-        # for style in BasicStyle.Image:
-        #     pass
+        for style in BasicStyle.Image:
+            pass
         
         for style in BasicStyle.Table:
             pass
         
+    def loadDir(self):
+        for path in [self.inPath, self.inImgPath, self.toPath]:
+            if not os.path.exists(path):
+                os.makedirs(path, exist_ok=True)
+            
     # mothed
     # input
     def inFile(self, inFile):
@@ -66,17 +69,20 @@ class Data2PDF:
         with open(inFile, "r") as file:
             self.inData = json.loads(file.read())
 
-    def setPath(self, path): 
+    def setPath(self, inPath): 
         # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
-        if not os.path.exists(path):
-            os.mkdir(path)
-        self.inPath = path
+        if not os.path.exists(inPath):
+            os.mkdir(inPath)
+        self.inPath = inPath
 
     def getPath(self):
         return self.inPath
 
-    def setImgPath(self,path):
-        self.inImgPath = path
+    def setImgPath(self, inImgPath):
+        # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
+        if not os.path.exists(inImgPath):
+            os.mkdir(inImgPath)
+        self.inImgPath = inImgPath
     
     def getImgPath(self):
         return self.inImgPath
@@ -102,11 +108,11 @@ class Data2PDF:
         else:
             self.pdf.build(data)
 
-    def setToPath(self, path):
+    def setToPath(self, toPath):
         # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
-        if not os.path.exists(path):
-            os.mkdir(path)
-        self.toPath = path
+        if not os.path.exists(toPath):
+            os.mkdir(toPath)
+        self.toPath = toPath
 
     def getToPath(self):
         return self.toPath
@@ -160,18 +166,20 @@ class Data2PDF:
     def addImg(self):
         self.imgStyle = 1
     
-    # def getImg():
-    #     pass
+    def getImg(self):
+        Img = [ f"{num+1:4d} {i}" for num, i in enumerate(self.imgStyle.keys()) ]
+        return "\nText Style:\n\n" + "\n".join(Img) + "\n"
     
     # table
-    def inTable( ):
+    def inTable(self, ):
         pass
     
-    def setTable():
+    def setTable(self, ):
         pass
     
-    # def getTable():
-    #     pass
+    def getTable(self):
+        Table = [ f"{num+1:4d} {i}" for num, i in enumerate(self.tableStyle.keys()) ]
+        return "\nText Style:\n\n" + "\n".join(Table) + "\n"
     
     ## footer 在 PDF 頁面底部寫入頁碼
     def infooter(self, canvas, doc):

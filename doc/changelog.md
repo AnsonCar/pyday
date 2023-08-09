@@ -1,4 +1,16 @@
 # Change Log(更新日志)
+## pyday 2023-08-09(v0.0.23)
+- [新增] [AnsonCar] Tool dirTree 顯示文件樹狀結構工具
+- [重整] [AnsonCar] DataReader 功能
+- [新增] [AnsonCar] DataReader 指令大全
+- [修改] [AnsonCar] DataReader 輸入文件夾為 ```/pydayData/Reader``` ( 原本為 ```/pydayData``` )
+- [修改] [AnsonCar] DataReader 輸出文件夾為 ```/pydayDist/Reader``` ( 原本為 ```/pydayDist``` )
+- [修改] [AnsonCar] Data2PDf 輸入文件夾為 ```/pydayData/PDF``` ( 原本為 ```/pydayData```  )
+- [修改] [AnsonCar] Data2PDf 輸出文件夾為 ```/pydayDist/PDF``` ( 原本為 ```/pydayDist``` )
+- [新增] [AnsonCar] DataVis 指令 文件夾
+- [新增] [AnsonCar] Tool 指令 文件夾 及其內容
+- [修改] [AnsonCar] 更新 README.md
+
 ## pyday 2023-08-07(v0.0.22)
 - [修改] Data2PDF 指令大全
 - [新增] Image 及 Table 樣式
@@ -7,8 +19,8 @@
 - [加入] [AnsonCar] Data2PDF 詳細文檔 更多內容
 - [新增] [AnsonCar] Data2PDF 指令大全
 - [新增] [AnsonCar] DatPDF TextStyle 相關指令
-- [修改] [AnsonCar] Data2PDf 輸入文件夾為 ```/pydayData``` ( 原本為```/data`` )
-- [修改] [AnsonCar] Data2PDf 輸出文件夾為 ```/pydayDist``` ( 原本為```/dist``` )
+- [修改] [AnsonCar] Data2PDf 輸入文件夾為 ```/pydayData``` ( 原本為 ```/data``` )
+- [修改] [AnsonCar] Data2PDf 輸出文件夾為 ```/pydayDist``` ( 原本為 ```/dist``` )
 
 ## pyday 2023-07-27(v0.0.20)
 - [新增] [AnsonCar] Data2PDF 詳細文檔

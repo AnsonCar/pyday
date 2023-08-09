@@ -6,3 +6,4 @@ pydayData/
 .vscode
 .ipynb_checkpoints/
 use.md
+__pycache__

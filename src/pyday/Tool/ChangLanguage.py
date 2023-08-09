@@ -1,4 +1,6 @@
-from .basic import config
+import sys
+sys.path.append("..")
+from ..basic import config
 
 from opencc import OpenCC
 from googletrans import Translator

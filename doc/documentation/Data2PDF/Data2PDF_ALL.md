@@ -20,6 +20,7 @@ d2pdf.getImgPath()
 # 改變引入文件目錄
 d2pdf.setPath(path)  # 如果沒有此路徑會自動生成
 d2pdf.setImgPath(path)  # 如果沒有此路徑會自動生成
+
 ```
 
 ##  輸出
@@ -33,6 +34,12 @@ d2pdf.getToPath()
 
 # 改變輸出文件目錄
 d2pdf.setToPath(path)  # 如果沒有此路徑會自動生成
+```
+
+## 檢查文件夾是否存在及生成
+```python
+# 初始化時會使用，如果為jupyter環境不會執行此方法。
+d2pdf.loadDir()  # 如果沒有此路徑會自動生成
 ```
 
 ## 設定樣式
