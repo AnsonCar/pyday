@@ -45,17 +45,17 @@ class Data2PDF:
         # Style
         self.textStyle = {}
         self.imgStyle = {}
-        self.tableStyle = {}
+        self.tableStyle = []
         
         # Text
         for style in BasicStyle.Text:
-            self.addText(style)
+            self.addTextStyle(style)
             
         for style in BasicStyle.Image:
             pass
         
         for style in BasicStyle.Table:
-            pass
+            self.addTableStyle(style)
         
     def loadDir(self):
         for path in [self.inPath, self.inImgPath, self.toPath]:
@@ -98,6 +98,7 @@ class Data2PDF:
             bottomMargin=72,
         )
         
+        print(self.pdf.width)
         data = []
         for line in self.inData["data"]:
             data.append( self.toStyle( line ) )
@@ -121,7 +122,7 @@ class Data2PDF:
         if line[0] == "img":
             return self.inImg( line[1] )
         elif line[0] == "table":
-            return self.inTable( line[1] )
+            return self.inTable( line[1],style=self.tableStyle[line[2]] )
         else:
             return self.inText( line[1], line[0] )
         
@@ -135,9 +136,9 @@ class Data2PDF:
     
     # Text
     def inText(self, data, style):
-        return  Paragraph( data, self.textStyle[ style ] )
+        return Paragraph( data, self.textStyle[ style ] )
     
-    def addText(self, style):
+    def addTextStyle(self, style):
         # 檢查是否為 list
         if type(style[0]) == list and type(style[1]) == list:
             # 檢查是否多於一個名稱和字體，以及名稱字體數目是否相同
@@ -171,14 +172,17 @@ class Data2PDF:
         return "\nText Style:\n\n" + "\n".join(Img) + "\n"
     
     # table
-    def inTable(self, ):
+    def inTable(self, data, style):
+        return Table(data, style=style )
+    
+    def addTableStyle(self, style ):
+        self.tableStyle.append(style)
+    
+    def setTableStyle(self, ):
         pass
     
-    def setTable(self, ):
-        pass
-    
-    def getTable(self):
-        Table = [ f"{num+1:4d} {i}" for num, i in enumerate(self.tableStyle.keys()) ]
+    def getTableStyle(self):
+        Table = [ f"{num+1:4d} {i}" for num, i in enumerate(self.tableStyle) ]
         return "\nText Style:\n\n" + "\n".join(Table) + "\n"
     
     ## footer 在 PDF 頁面底部寫入頁碼

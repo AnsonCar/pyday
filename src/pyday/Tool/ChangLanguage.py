@@ -8,7 +8,7 @@ from googletrans import Translator
 # ChangLanguage
 class ChangLang:
     # constructor
-    def __init__(self):
+    def __init__(self, text=None):
         self.data = "null"
         self.tc = "null"
         self.sc = "null"
@@ -17,12 +17,26 @@ class ChangLang:
         self.cc = OpenCC()
         self.translator = Translator()
         
+        if isinstance(text, str):
+            self.setData(text)
+        
     # method
-    # setter
+    # input
+    def inFile(self, file):
+        with open(file) as f:
+            self.data = f.read()
+            self.setData(self.data)
+            
     def setData(self, data) -> None:
         self.data = str(data)
         self.reload()
     
+    # output
+    def toFile(self, fileName, data):
+        # 寫入文件
+        with open(fileName, "w") as f:
+            f.write(data)
+            
     # Chang Way
     def tt2tc(self):
         self.cc.set_conversion('s2t')

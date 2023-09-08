@@ -37,11 +37,11 @@ PyDay 是一個綜合工具包，主要用於數據分析和數據可視化，�
 **查看 [Data2PDf 指令大全](doc/documentation/Data2PDF/Data2PDF_ALL.md)**
 
 ### DataReader
-**查看 [DataReader 詳細文檔](doc/documentation/DataReader/DataReader.md)**
+**查看 [DataReader 詳細文檔](doc/documentation/DataReader/DataReader.md)**  
 **查看 [DataReader 指令大全](doc/documentation/DataReader/DataReader_ALL.md)**
 
 ### DataVis
-**查看 [DataVis 詳細文檔](doc/documentation/DataVis/DataVis.md)**
+**查看 [DataVis 詳細文檔](doc/documentation/DataVis/DataVis.md)**  
 **查看 [DataVis 指令大全](doc/documentation/DataVis/DataVis_ALL.md)**
 
 ### Tool
