@@ -51,3 +51,6 @@ pip freeze > requirements.txt
 # https://developer.aliyun.com/article/97455
 
 # https://blog.csdn.net/weixin_39920403/article/details/110052433
+
+# if not "ipykernel" in sys.modules:
+#     self.loadDir()

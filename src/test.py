@@ -1,10 +1,14 @@
 # from pyday import DataReader
 # dr = DataReader()
-# dr.inFile("train.csv")
-# dr.toFile("test.all")
+# dr.inFile("特擊調查大會.csv")
+# dr.toFile("test.csv")
 
-from pyday import Data2PDF
-d2pdf = Data2PDF()
-d2pdf.inFile("test.json")
-print( d2pdf.getTableStyle() )
-# d2pdf.toFile("test2.pdf") 
+# from pyday import Data2PDF
+# d2pdf = Data2PDF()
+# d2pdf.inFile("test2.json")
+# d2pdf.toFile("test2.pdf")
+
+from pyday import DataVis
+dv = DataVis()
+dv.inFile("test.json")
+dv.toFile("test.png")

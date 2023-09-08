@@ -2,7 +2,8 @@ import os
 import json
 from . import BasicStyle
 from ..basic import config
-from ..Tool.ChangLanguage import *
+from ..basic.BasisDay import BasisDay
+from ..Tool.ChangLang import *
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -22,21 +23,16 @@ from reportlab.lib.colors import HexColor
 
 styles = getSampleStyleSheet()
 
-class Data2PDF:
+class Data2PDF(BasisDay):
     # constructor
     def __init__(self, inFile=None):
         # Data Memder
-        # Basic & Path
+        super().__init__("pdf")
         self.fileName = inFile
         self.inData = { "data": [ [ "Title_TC", "Did Not Have Data" ] ] }
-        self.inPath = os.path.join( config.worKdir, "pydayData/PDF" )
-        self.inImgPath = os.path.join( config.worKdir, "pydayData/PDF/img" )
-        self.toPath = os.path.join( config.worKdir, "pydayDist/PDF" )
+        self.inImgPath = os.path.join( config.worKdir, "pydayData/pdf/img" )
         self.pdf = None
 
-        if not "ipykernel" in sys.modules:
-            self.loadDir()
-        
         if isinstance(inFile, str):
             self.inFile(inFile)
         elif isinstance(inFile, dict):
@@ -56,27 +52,14 @@ class Data2PDF:
         
         for style in BasicStyle.Table:
             self.addTableStyle(style)
-        
-    def loadDir(self):
-        for path in [self.inPath, self.inImgPath, self.toPath]:
-            if not os.path.exists(path):
-                os.makedirs(path, exist_ok=True)
             
     # mothed
     # input
     def inFile(self, inFile):
+        self.loadDir( [self.inPath, self.inImgPath, self.toPath] )
         inFile = f"{self.inPath}/{inFile}"
         with open(inFile, "r") as file:
             self.inData = json.loads(file.read())
-
-    def setPath(self, inPath): 
-        # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
-        if not os.path.exists(inPath):
-            os.mkdir(inPath)
-        self.inPath = inPath
-
-    def getPath(self):
-        return self.inPath
 
     def setImgPath(self, inImgPath):
         # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
@@ -89,6 +72,7 @@ class Data2PDF:
     
     # output
     def toFile(self, toFile, footer=True, cl=None):
+        self.loadDir( [self.toPath] )
         self.pdf = SimpleDocTemplate(
             f"{self.getToPath()}/{toFile}",
             pagesize=letter,
@@ -102,21 +86,12 @@ class Data2PDF:
         data = []
         for line in self.inData["data"]:
             data.append( self.toStyle( line ) )
-            
+
         if footer:
             # 如果需要在 PDF 頁面底部添加頁碼，則設置 onFirstPage 和 onLaterPages 參數，並生成 PDF 文件。
             self.pdf.build(data, onFirstPage=self.infooter, onLaterPages=self.infooter)
         else:
             self.pdf.build(data)
-
-    def setToPath(self, toPath):
-        # 如果沒有此路徑會自動生成 If the path does not exist, the directory will be created
-        if not os.path.exists(toPath):
-            os.mkdir(toPath)
-        self.toPath = toPath
-
-    def getToPath(self):
-        return self.toPath
     
     def toStyle(self, line):
         if line[0] == "img":

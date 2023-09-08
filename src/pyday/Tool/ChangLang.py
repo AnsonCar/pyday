@@ -1,12 +1,12 @@
-import sys
-sys.path.append("..")
-from ..basic import config
-
+import os
 from opencc import OpenCC
 from googletrans import Translator
 
+from ..basic import config
+from ..basic.BasisDay import BasisDay
+
 # ChangLanguage
-class ChangLang:
+class ChangLang(BasisDay):
     # constructor
     def __init__(self, text=None):
         self.data = "null"

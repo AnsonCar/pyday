@@ -3,6 +3,7 @@
 - [AnsonCar] 整埋文件夾
 - [AnsonCar] 重整Tool 
 - [AnsonCar] 新增Tool ChangeLanguage inFile 和 toFile 功能
+- [AnsonCar] 新增父類 BasisDay 方便寫入路徑
 
 ## pyday 2023-08-09(v0.0.23)
 - [新增] [AnsonCar] Tool dirTree 顯示文件樹狀結構工具

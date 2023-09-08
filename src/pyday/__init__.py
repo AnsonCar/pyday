@@ -3,6 +3,6 @@ from .Data2PDF.Data2PDF import *
 from .DataVis.DataVis import *
 
 from .Tool.dirTree import *
-from .Tool.ChangLanguage import *
+from .Tool.ChangLang import *
 
-__version__ = '0.0.23'
+__version__ = '0.0.24'
