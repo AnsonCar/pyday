@@ -7,3 +7,5 @@ pydayData/
 .ipynb_checkpoints/
 use.md
 __pycache__
+test.ipynb
+test.*

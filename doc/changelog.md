@@ -1,4 +1,7 @@
 # Change Log(更新日志)
+## pyday 2023-09-12(v0.0.25)
+- [AnsonCar] DataReader 新增 Words檔 䌓簡轉換功能
+
 ## pyday 2023-09-08(v0.0.24)
 - [AnsonCar] 整埋文件夾
 - [AnsonCar] 重整Tool 

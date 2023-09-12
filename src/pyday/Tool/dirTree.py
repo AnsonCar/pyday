@@ -1,20 +1,30 @@
 import os
+import sys
 
-def dirTree(path, exclude_list=None, max_depth=None, current_depth=0):
-    # Get the list of files and directories in the given path
+def dirTree(path, exclude_list=None, level=0, maxLevel=None, firstLast=False):
+    # 取得當前目錄所有文件
     files = os.listdir(path)
-    # Loop through the list
-    for file in files:
-        # Exclude files or directories in exclude_list
-        if exclude_list is not None and file in exclude_list:
+    # 遍历列表
+    for num, file in enumerate(files):
+        # 如果不要顯示的文件就跳
+        if (exclude_list is not None) and file in exclude_list:
             continue
-        # If the file is a directory and we haven't exceeded the max depth
-        if os.path.isdir(os.path.join(path, file)) and (max_depth is None or current_depth < max_depth):
-            # Print the directory name
-            print("|   " * current_depth + "|-- " + file)
-            # Recursively call the function with the subdirectory as the path and increased depth
-            dirTree(os.path.join(path, file), exclude_list, max_depth, current_depth + 1)
-        # If the file is a file or we've exceeded the max depth
+
+        # 判斷是否為最後一項
+        isLast = len(files) - 1 == num
+        prefix = "└── " if isLast else "├── "
+        if level == 0:
+            print( prefix + file )
         else:
-            # Print the file name
-            print("    " * current_depth + "|-- " + file)
+            if firstLast:
+                print( "    " + "│   "*(level-1) + prefix + file )
+            else:
+                print( "│   " * level + prefix + file )
+    
+        isDir = os.path.isdir(os.path.join(path, file))
+        
+        if not firstLast:
+            firstLast = level == 0 and isLast
+        if isDir and (maxLevel is None or level < maxLevel):
+            dirPath = os.path.join(path, file)
+            dirTree(dirPath, exclude_list,level=level+1, maxLevel=maxLevel, firstLast=firstLast)
