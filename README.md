@@ -33,6 +33,44 @@ Pyday 提供了一些有用的功能，例如䌓簡英轉換、解壓縮（想�
 
 ---
 
+## 項目結構
+```
+*
+├── LICENSE
+├── requirements.txt
+├── test
+├── pydayData
+│   ├── reader
+│   └── pdf
+├── script
+│   ├── use.py
+│   ├── set.sh
+│   ├── build.sh
+│   └── font.sh
+├── README.md
+├── pydayDist
+│   ├── reader
+│   └── pdf
+├── setup.py
+├── .gitignore
+├── .gitattributes
+├── doc
+│   ├── documentation
+│   ├── changelog.md
+│   └── Logo
+├── setup.cfg
+└── src
+    ├── pyday.egg-info
+    ├── pyday
+    ├── test.py
+    └── test.ipynb
+```
+
+---
+## 線上資源
+**查看 [AC-Note/pyday線上文檔](https://ansoncar.github.io/AC-Note/Document/pyday/guide_tc.html)**
+**查看 [pypi/pyday主頁](https://pypi.org/project/pyday/)**
+
 ## 使用方法
 **查看 [pyday 快速開始](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/guide_tc.md)**
 

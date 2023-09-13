@@ -2,6 +2,7 @@
 ## pyday 2023-09-12(v0.0.32)
 - [AnsonCar] DataReader 新增 Words檔 䌓簡轉換功能
 - [AnsonCar] 正式上載到 pypi
+- [AnsonCar] 整理說明文件
 
 ## pyday 2023-09-08(v0.0.24)
 - [AnsonCar] 整埋文件夾
