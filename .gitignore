@@ -1,11 +1,15 @@
 .venv/
 dist/
 pydayDist/
-data
 pydayData/
+pyday.egg-info/
+
 .vscode
 .ipynb_checkpoints/
+
 use.md
+
 __pycache__
+
 test.ipynb
-test.*
+test.py
