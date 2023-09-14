@@ -18,16 +18,16 @@ class ChangLang(BasisDay):
         self.translator = Translator()
         
         if isinstance(text, str):
-            self.setData(text)
+            self.inData(text)
         
     # method
     # input
     def inFile(self, file):
         with open(file) as f:
-            self.data = f.read()
-            self.setData(self.data)
+            self. k = f.read()
+            self.inData(self.data)
             
-    def setData(self, data) -> None:
+    def inData(self, data) -> None:
         self.data = str(data)
         self.reload()
     
@@ -70,7 +70,7 @@ class ChangLang(BasisDay):
 
     def __repr__(self) -> str:
         return "\n" + self.tc + "\n" + self.sc + "\n" + self.en + "\n"
-    
+
 # opencc 選擇
 # hk2s: Traditional Chinese (Hong Kong standard) to Simplified Chinese
 # s2hk: Simplified Chinese to Traditional Chinese (Hong Kong standard)

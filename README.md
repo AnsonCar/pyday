@@ -4,7 +4,7 @@
 <h1 align="center"><b>PyDay</b></h1>
 
 <p align="center">Python 工具一條龍</p>
-<p align="center"></p>
+<p align="center">v0.0.33</p>
 
 ---
 
@@ -58,12 +58,10 @@ Pyday 提供了一些有用的功能，例如䌓簡英轉換、解壓縮（想�
 pip install pyday
 ```
 
-### 運行
+### 測試
 ```python
-from pyday import ChangLang
-text = "歡迎使用pyday"
-cl = ChangLang(text)
-print(cl)
+import pyday
+print(pyday.__version__)
 ```
 
 ---
