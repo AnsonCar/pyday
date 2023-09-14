@@ -36,60 +36,41 @@ Pyday 提供了一些有用的功能，例如䌓簡英轉換、解壓縮（想�
 ## 項目結構
 ```
 *
-├── LICENSE
+├── LICENSE 開源證明
 ├── requirements.txt
-├── test
-├── pydayData
-│   ├── reader
-│   └── pdf
-├── script
-│   ├── use.py
-│   ├── set.sh
-│   ├── build.sh
-│   └── font.sh
+├── test 
+├── script 有用腳本
 ├── README.md
-├── pydayDist
-│   ├── reader
-│   └── pdf
-├── setup.py
+├── setup.py 打包庫
 ├── .gitignore
 ├── .gitattributes
-├── doc
-│   ├── documentation
-│   ├── changelog.md
-│   └── Logo
+├── doc 
 ├── setup.cfg
 └── src
-    ├── pyday.egg-info
-    ├── pyday
-    ├── test.py
-    └── test.ipynb
+    └── pyday
 ```
 
 ---
-## 線上資源
-**查看 [AC-Note/pyday線上文檔](https://ansoncar.github.io/AC-Note/Document/pyday/guide_tc.html)**
-**查看 [pypi/pyday主頁](https://pypi.org/project/pyday/)**
 
 ## 使用方法
-**查看 [pyday 快速開始](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/guide_tc.md)**
+### 安裝
+```python 
+pip install pyday
+```
 
-### Data2PDF
-**查看 [Data2PDF 詳細文檔](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/Data2PDF/Data2PDF.md)**  
-**查看 [Data2PDf 指令大全](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/Data2PDF/Data2PDF_ALL.md)**
+### 運行
+```python
+from pyday import ChangLang
+text = "歡迎使用pyday"
+cl = ChangLang(text)
+print(cl)
+```
 
-### DataReader
-**查看 [DataReader 詳細文檔](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/DataReader/DataReader.md)**  
-**查看 [DataReader 指令大全](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/DataReader/DataReader_ALL.md)**
+---
 
-### DataVis
-**查看 [DataVis 詳細文檔](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/DataVis/DataVis.md)**  
-**查看 [DataVis 指令大全](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/DataVis/DataVis_ALL.md)**
-
-### Tool
-<!-- **查看 [dirTree](doc/documentation/Tool/dirTree.md)** -->
-<!-- **查看 [unzip](doc/documentation/Tool/)** -->
-**查看 [Tool 指令大全](https://github.com/AnsonCar/pyday/blob/main/doc/documentation/Tool/Tool_ALL.md)**
+## 線上資源
+**查看 [pypi/pyday主頁](https://pypi.org/project/pyday/)**
+**查看 [pyday線上文檔](https://ansoncar.github.io/AC-Note/Document/pyday/guide_tc.html)**
 
 ---
 
