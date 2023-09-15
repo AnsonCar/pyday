@@ -67,7 +67,7 @@ print(pyday.__version__)
 ---
 
 ## 線上資源
-**查看 [pypi/pyday主頁](https://pypi.org/project/pyday/)**
+**查看 [pypi/pyday主頁](https://pypi.org/project/pyday/)**  
 **查看 [pyday線上文檔](https://ansoncar.github.io/AC-Note/Document/pyday/guide_tc.html)**
 
 ---
