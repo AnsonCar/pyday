@@ -1,5 +1,5 @@
 import os
-print("*")
+
 def dirTree(path, exclude_list=None, level=0, maxLevel=None, firstLast=False):
     # 取得當前目錄所有文件
     files = os.listdir(path)

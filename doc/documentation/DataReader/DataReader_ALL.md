@@ -23,7 +23,7 @@ dr.setPath(path)  # 如果沒有此路徑會自動生成
 
 ## 輸出
 ```python
-# 目前只支持csv, json, xlsx
+# 目前只支持csv, json, xlsx, word
 dr.toFile("test2.csv")
 dr.toFile("test2.json")
 dr.toFile("test2.xlsx")
@@ -36,10 +36,3 @@ dr.getToPath()
 # 改變輸出文件目錄
 dr.setToPath(path)  # 如果沒有此路徑會自動生成
 ```
-
-## 檢查文件夾是否存在及生成
-```python
-# 初始化時會使用，如果為jupyter環境不會執行此方法。
-dr.loadDir()  # 如果沒有此路徑會自動生成
-```
-

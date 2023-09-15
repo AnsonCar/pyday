@@ -9,46 +9,50 @@ from ..basic.BasisDay import BasisDay
 class ChangLang(BasisDay):
     # constructor
     def __init__(self, text=None):
-        self.data = "null"
+        self.inData = "null"
         self.tc = "null"
         self.sc = "null"
-        self.en = "null"
         
         self.cc = OpenCC()
         self.translator = Translator()
         
         if isinstance(text, str):
-            self.inData(text)
+            self.setData(text)
         
     # method
     # input
-    def inFile(self, file):
-        with open(file) as f:
-            self. k = f.read()
-            self.inData(self.data)
+    # def inFile(self, file):
+    #     with open(file) as f:
+    #         self. k = f.read()
+    #         self.inData(self.data)
             
-    def inData(self, data) -> None:
-        self.data = str(data)
-        self.reload()
+    def setData(self, data) -> None:
+        self.inData = str(data)
+        self.loadData()
     
     # output
-    def toFile(self, fileName, data):
-        # 寫入文件
-        with open(fileName, "w") as f:
-            f.write(data)
-            
-    # Chang Way
+    # def toFile(self, fileName, data):
+    #     # 寫入文件
+    #     with open(fileName, "w") as f:
+    #         f.write(data)
+
+    def loadData(self) -> None:
+        self.tc = self.tt2tc()
+        self.sc = self.tc2sc()
+
+    # 基本轉換
     def tt2tc(self):
         self.cc.set_conversion('s2t')
-        return self.cc.convert(self.data) 
+        return self.cc.convert(self.inData) 
 
     def tc2sc(self):
         self.cc.set_conversion('t2s')  
-        return self.cc.convert(self.data)
+        return self.cc.convert(self.inData)
 
-    def tc2en(self):
+    # 翻譯功能
+    def tc2en(self, data):
         try:
-            self.en = self.translator.translate(self.tc, dest='en').text
+            self.en = self.translator.translate(data, dest='en').text
         except:
             self.en = "null"
         return self.en
@@ -58,19 +62,14 @@ class ChangLang(BasisDay):
             return self.translator.translate(data, dest='zh-TW').text
         except:
             return "null"
-        
-    def reload(self):
-        self.tc = self.tt2tc()
-        self.sc = self.tc2sc()
-        self.en = self.tc2en()
-        
+    
     # Basic 一般
     def __str__(self) -> str:
-        return "\n" + self.tc + "\n" + self.sc + "\n" + self.en + "\n"
+        return f"\n{self.tc}\n\n{self.sc}\n"
 
     def __repr__(self) -> str:
-        return "\n" + self.tc + "\n" + self.sc + "\n" + self.en + "\n"
-
+        return f"\n{self.tc}\n\n{self.sc}\n"
+    
 # opencc 選擇
 # hk2s: Traditional Chinese (Hong Kong standard) to Simplified Chinese
 # s2hk: Simplified Chinese to Traditional Chinese (Hong Kong standard)
