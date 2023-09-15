@@ -73,4 +73,4 @@ print(pyday.__version__)
 ---
 
 ## 查閱更多
-**查看 [Change Log(更新日志)](https://github.com/AnsonCar/pyday/blob/main/doc/changelog.md)**
+**查看 [Change Log(更新日志)](https://github.com/AnsonCar/pyday/blob/main/doc/CHANGLOG.md)**
