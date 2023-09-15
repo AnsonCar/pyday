@@ -6,9 +6,11 @@ from ..basic import config
 from ..basic.BasisDay import BasisDay
 
 # ChangLanguage
-class ChangLang(BasisDay):
+# class ChangLang(BasisDay):
+class ChangLang:
     # constructor
     def __init__(self, text=None):
+        # super().__init__("reader")
         self.inData = "null"
         self.tc = "null"
         self.sc = "null"

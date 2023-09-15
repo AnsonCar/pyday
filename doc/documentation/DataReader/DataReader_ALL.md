@@ -14,7 +14,6 @@ dr = DaatDeader("test.csv")
 # 請存放文件在 pydayData/reader 目錄下
 # 如果沒有此路徑會自動生成
 dr.inFile("test.csv") 
-
 ```
 
 ## 輸出
@@ -49,4 +48,7 @@ dr.setToPath(path)
 ```python
 dr.inFile("xx.docx")
 dr.toFile("xx.docx", "sc")
+
+# 可以 轉為 英文（需連網）
+dr.toFile("xx.docx", "en")
 ```

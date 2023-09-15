@@ -56,18 +56,18 @@ class DataReader(BasisDay):
                                 if isCl == "sc":
                                     ci.text = ChangLang(ci.text).sc
                                 elif isCl == "en":
-                                    ci.text = ChangLang(ci.text).en
+                                    ci.text = ChangLang().tc2en(ci.text)
                                     
                 for text in doc.paragraphs:
                     if len(text.text) > 1:
                         if isCl == "sc":
                             text.text = ChangLang(text.text).sc
                         elif isCl == "en":
-                            text.text = ChangLang(text.text).en
+                            text.text = ChangLang().tc2en(text.text)
                 if isCl == "sc":
                     self.df.save(f"{ChangLang(out).sc}.docx")
                 elif isCl == "en":
-                    self.df.save(f"{ChangLang(out).en}.docx")
+                    self.df.save(f"{self.toPath}/{ChangLang().tc2en(toFile)}.docx")
         else:
             if toFileFormat == "all":
                 self.df.to_csv( f"{out}.csv", index=False)

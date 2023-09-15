@@ -20,7 +20,7 @@ print(cl.sc) # 繁轉簡體
 print(cl.tc) # 轉為繁體
 ```
 
-### 中文翻釋成英文
+### 中文翻釋成英文 （需連網）
 ```python
 from pyday import ChangLang
 cl = ChangLang()
@@ -28,7 +28,7 @@ text = "歡迎使用pyday"
 print(cl.en2tc(text))
 ```
 
-### 英文翻釋成中文
+### 英文翻釋成中文（需連網）
 ```python
 from pyday import ChangLang
 cl = ChangLang()
