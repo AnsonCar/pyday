@@ -1,4 +1,8 @@
 # Change Log(更新日志)
+## pyday 2023-09-23(v0.0.34)
+- [AnsonCar]    新增批量解壓縮文件Tool，class DataUnZip
+- [感言]    泰迪杯之python解壓縮之仇，呵呵呵。
+
 ## pyday 2023-09-15(v0.0.33)
 - [AnsonCar]    寫文檔
 
