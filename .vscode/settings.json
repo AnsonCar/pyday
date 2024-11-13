@@ -1,0 +1,28 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+    },
+    "autopep8.args": [
+        "--line-length",
+        "600"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "editor.formatOnSave": true,
+    "prettier.singleQuote": true,
+    "python.analysis.autoFormatStrings": true, // 自動格式化 Python 中的字串。
+    "editor.linkedEditing": true, // 使得同時編輯相同變數或符號更容易。
+    "editor.bracketPairColorization.enabled": true, // 啟用括號配對著色功能。
+    "editor.guides.bracketPairs": true, // 在括號間顯示視覺導引線
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // 預設使用的程式碼格式化工具
+    "editor.codeActionsOnSave": [
+        "source.organizeImports", // 保存时的整理导入。
+        "source.fixAll", // 保存时的自动修复在一轮中计算所有可能的修复
+        "addMissingImports" // 在保存时添加所有缺少的导入
+    ],
+    "files.encoding": "utf8",
+}

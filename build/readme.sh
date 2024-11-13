@@ -1,0 +1,1 @@
+typer pyday.main utils docs --output README.md

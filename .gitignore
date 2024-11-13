@@ -1,15 +1,39 @@
-.venv/
-dist/
-pydayDist/
-pydayData/
-pyday.egg-info/
+backend/*/db
+backend/*/data/local
+backend/*/data/stage
+backend/postgresql/data
 
-.vscode
-.ipynb_checkpoints/
+.test
 
-use.md
-
+db.sqlite3
+pgadmin
+.venv
 __pycache__
+node_modules
+.output
+.vercel
+/.svelte-kit
+.DS_Store
+Thumbs.db
+test
+# .env
+# .env.*
+# !.env.example
+# !.env.test
 
-test.ipynb
-test.py
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.output
+.data
+.nuxt
+.nitro
+.cache
+cache
+dist
+node_modules
+logs
+*.log
+.DS_Store
+.fleet
+.idea
+# .vscode
