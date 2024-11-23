@@ -6,10 +6,6 @@ def input_file(input_path: str = "") -> str | dict:
     data = ""
     with open(f"{input_path}", "r", encoding="utf-8") as f:
         data = f.read()
-    try:
-        data = json.loads(data)
-    except Exception as e:
-        print(e)
     return data
 
 def output_file(name: str, data: str | dict, output_dir: str = "./dist") -> None:
