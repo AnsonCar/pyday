@@ -1,15 +1,37 @@
 import typer
-from opencc import OpenCC
 
-from .changelang import change_json_value
-from .utils.fileIO import input_file, output_file
+from .change_encode import change_file_encode
+from .change_lang import change_file_lang
 
 app = typer.Typer(no_args_is_help=True)
 
+
 @app.command()
-def changelang(file:str, lang:str, output_name:str=None, output:str = "./dist"):
-    data = input_file(file)
-    data = OpenCC(lang).convert(data)
-    if not output_name:
-        output_name = file.split('/')[-1]
-    output_file(output_name, data, output)
+def change_encode(path: str, output: str = "./dist") -> None:
+    """
+    將文件從GB2312編碼轉換為UTF-8編碼。
+
+    Args:
+      path (str): 文件路徑。
+      output (str, optional): 轉換後的文件存放位置（默認值為“dist”）。
+    """
+    try:
+        change_file_encode(path, output)
+    except Exception as e:
+        print(str(e))
+
+
+@app.command()
+def change_lang(path: str, lang: str, output: str = "./dist") -> None:
+    """
+    將文件的語言轉換為指定的語言。
+
+    Args:
+      path (str): 文件路徑。
+      lang (str): 目標語言。(s2t t2s)
+      output (str, optional): 轉換後的文件存放位置（默認值為“dist”）。
+    """
+    try:
+        change_file_lang(path, lang, output)
+    except Exception as e:
+        print(str(e))

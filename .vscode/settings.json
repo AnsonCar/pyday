@@ -1,28 +1,102 @@
 {
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8",
-        "editor.formatOnSave": true,
-    },
-    "autopep8.args": [
-        "--line-length",
-        "600"
+    // base
+    "files.encoding": "utf8",
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true, // 使得同時編輯相同變數或符號更容易。
+    "editor.bracketPairColorization.enabled": true, // 啟用括號配對著色功能。
+    "editor.guides.bracketPairs": true, // 在括號間顯示視覺導引線
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // 預設使用的程式碼格式化工具
+    "editor.rulers": [
+        120,
+    ], // 顯示程式碼寬度參考線
+    "editor.codeActionsOnSave": [
+        "source.organizeImports", // 保存时的整理导入。
+        // "source.fixAll", // 保存时的自动修复在一轮中计算所有可能的修复
+        // "addMissingImports" // 在保存时添加所有缺少的导入
     ],
+    // python
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "python.analysis.inlayHints.callArgumentNames": "all",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.autoIndent": true,
+    "python.analysis.autoFormatStrings": true, // 在字串內輸入“{”時，是否自動加上“f”前綴。
+    "python.analysis.completeFunctionParens": true, // 為函數補全添加括號。
+    "black-formatter.args": [
+        "--line-length",
+        "240"
+    ],
+    // vue
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    // json
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features",
         "editor.formatOnSave": true,
         "editor.tabSize": 2
     },
-    "editor.formatOnSave": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    // ts
+    "typescript.format.semicolons": "insert",
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    // js
+    "javascript.format.semicolons": "insert",
+    "javascript.inlayHints.enumMemberValues.enabled": true,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    // Prettier
     "prettier.singleQuote": true,
-    "python.analysis.autoFormatStrings": true, // 自動格式化 Python 中的字串。
-    "editor.linkedEditing": true, // 使得同時編輯相同變數或符號更容易。
-    "editor.bracketPairColorization.enabled": true, // 啟用括號配對著色功能。
-    "editor.guides.bracketPairs": true, // 在括號間顯示視覺導引線
-    "editor.defaultFormatter": "esbenp.prettier-vscode", // 預設使用的程式碼格式化工具
-    "editor.codeActionsOnSave": [
-        "source.organizeImports", // 保存时的整理导入。
-        "source.fixAll", // 保存时的自动修复在一轮中计算所有可能的修复
-        "addMissingImports" // 在保存时添加所有缺少的导入
+    "prettier.printWidth": 240,
+    "prettier.trailingComma": "es5",
+    "prettier.semi": true,
+    "prettier.tabWidth": 2,
+    // EsLint
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "xml",
+        "gql",
+        "graphql",
+        "astro",
+        "css",
+        "less",
+        "scss",
+        "pcss",
+        "postcss"
     ],
-    "files.encoding": "utf8",
+    // Git
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
 }
