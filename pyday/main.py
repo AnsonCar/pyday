@@ -7,16 +7,16 @@ app = typer.Typer(no_args_is_help=True)
 
 
 @app.command()
-def change_encode(path: str, output: str = "./dist") -> None:
+def change_encode(path: str, encode: str = "gb18030", output: str = "./dist") -> None:
     """
-    將文件從GB2312編碼轉換為UTF-8編碼。
+    將文件從GB18030/GB2312編碼轉換為UTF-8編碼。
 
     Args:
       path (str): 文件路徑。
       output (str, optional): 轉換後的文件存放位置（默認值為“dist”）。
     """
     try:
-        change_file_encode(path, output)
+        change_file_encode(path, encode, output)
     except Exception as e:
         print(str(e))
 
