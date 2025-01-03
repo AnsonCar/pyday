@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyday"
-version = "0.1.3a"
+version = "0.1.3b"
 description = ""
 authors = ["AnsonCar <anson1tsang@gmail.com>"]
 readme = "README.md"
