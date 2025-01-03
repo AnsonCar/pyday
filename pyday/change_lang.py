@@ -9,7 +9,7 @@ def change_file_lang(in_path: str, lang: str, output: str = "./dist") -> None:
     path = Path(in_path)
     if path.is_file():
         try:
-            file = path.open()
+            file = path.open(encoding="utf-8")
             data: str = file.read()
             # print("change file langauge:", path)
             data_opencc: str = OpenCC(lang).convert(data)
